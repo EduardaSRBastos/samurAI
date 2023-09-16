@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamurAI</title>
+</head>
+<body>
+    <div class="tab-container">
+      <button
+        class="tab-button"
+        [class.active]="activeTab === 'cyberbullying'"
+        [class.slide-out]="activeTab === 'cyberbullying'"
+        (click)="setActiveTab('cyberbullying')"
+      >
+        CyberBullying
+      </button>
+      <button
+        class="tab-button"
+        [class.active]="activeTab === 'restaurant-reviews'"
+        [class.slide]="activeTab === 'restaurant-reviews'"
+        (click)="setActiveTab('restaurant-reviews')"
+      >
+        Restaurant Reviews
+      </button>
+    </div>      
+
+    <div class="info-container">
+      <ng-container *ngIf="activeTab === 'cyberbullying'">
+        <p class="label">Checking for cyberbullying</p>
+        <div class="input-container">
+          <input
+            type="text"
+            class="input-text"
+            placeholder="Example text"
+            #cyberbullyingInput
+            [(ngModel)]="cyberbullyingInputValue"
+            (click)="onFocusInput('cyberbullying')"
+            [ngClass]="{'required-border': cyberbullyingInputRequired}"
+            [ngStyle]="{
+              'background-color': cyberbullyingInputValue === '' && cyberbullyingInputRequired ? '#ffcccc' : '#FFF3E9',
+              'color': cyberbullyingInputValue === '' && cyberbullyingInputRequired ? 'red' : 'inherit'
+            }"
+          />
+          <button class="check-button" (click)="onCheckClick()">Check</button>
+        </div>
+        <div class="text-empty" *ngIf="cyberbullyingInputRequired">This field is required</div>
+        <p class="result-label" *ngIf="showCyberbullyingResult">Result</p>
+        <p [ngClass]="{'negative-result': isNotCyberbullying(cyberbullyingResult), 'positive-result': !isNotCyberbullying(cyberbullyingResult)}"
+          *ngIf="showCyberbullyingResult">{{ cyberbullyingResult }}</p>
+        <button class="accuracy-button" *ngIf="showCyberbullyingResult" (click)="onShowAccuracyReport()">Accuracy Report</button>
+      </ng-container>
+      
+      <ng-container *ngIf="activeTab === 'restaurant-reviews'">
+        <p class="label">Rating Review</p>
+        <div class="input-container">
+          <input
+            type="text"
+            class="input-text"
+            placeholder="Example review"
+            #reviewsInput
+            [(ngModel)]="reviewsInputValue"
+            (click)="onFocusInput('restaurant-reviews')"
+            [ngClass]="{'required-border': reviewsInputRequired}"
+            [ngStyle]="{
+              'background-color': reviewsInputValue === '' && reviewsInputRequired ? '#ffcccc' : '#FFF3E9',
+              'color': reviewsInputValue === '' && reviewsInputRequired ? 'red' : 'inherit'
+            }"
+          />
+          <button class="check-button" (click)="onRateClick()">Rate</button>
+        </div>
+        <div class="text-empty" *ngIf="reviewsInputRequired">This field is required</div>
+        <p class="result-label" *ngIf="showReviewsResult">Result</p>
+        <p [ngClass]="{'negative-result': isNegativeReview(reviewsResult), 'positive-result': !isNegativeReview(reviewsResult)}"
+          *ngIf="showReviewsResult">{{ reviewsResult }}</p>
+        <button class="accuracy-button"  *ngIf="showReviewsResult" (click)="onShowAccuracyReport()">Accuracy Report</button>
+      </ng-container>
+    </div>
+
+    <app-accuracy
+      *ngIf="showAccuracyReport"
+      [text]="activeTab === 'cyberbullying' ? cyberbullyingInput.nativeElement.value : reviewsInput.nativeElement.value"
+      [resultLabel]="activeTab === 'cyberbullying' ? cyberbullyingResult : reviewsResult"
+      [activeTab]="activeTab"
+      (close)="onHideAccuracyReport()"
+    ></app-accuracy>
+    
+</body>
+</html>

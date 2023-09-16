@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 .info-component {
     width: 1228px;
     height: 658px;
@@ -46,6 +50,7 @@
     width: 210px;
     height: 68px;
     border-radius: 50px;
+    border: none;
     background: #E57829;
     box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: #FFF;

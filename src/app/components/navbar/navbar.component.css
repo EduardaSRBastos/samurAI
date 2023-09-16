@@ -1,0 +1,73 @@
+html,body {
+    height: 125px; 
+    box-shadow: 0px -4px 4px 0px rgba(73, 35, 0, 0.25) inset;
+}
+
+body {
+    background: rgba(222, 93, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(73, 35, 0, 0.25);
+    display: flex;
+}
+
+.logo {
+    font-size: 50px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #EE995C 50%, #953E00 100%);
+    background-clip: text;
+    color: transparent;
+    margin:0 0 0 80px;
+    padding-top: 28px;
+    cursor: pointer;
+    border: 0;
+}
+
+.login-button {
+    width: 159px;
+    height: 70px;
+    border-radius: 20px;
+    border: none;
+    background: #E57829;
+    box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    margin: 28px 0 0 1350px;
+    cursor: pointer;
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.buttons-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: fit-content;
+    right: 100px;
+    padding-top: 28px;
+  }
+  
+  .profile-button {
+    height: 74px;
+    border-radius: 20px;
+    border: none;
+    background: #FFF;
+    box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    color: #E57829;
+    font-size: 36px;
+    font-weight: 700;
+    padding: 0 20px;
+    cursor: pointer;
+    flex-grow: 1;
+  }
+  
+  .logout-button {
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+    border: none;
+    background: #FFF;
+    cursor: pointer;
+    color: #E57829;
+    font-size: 30px;
+    padding: 0 20px;
+  }
+  

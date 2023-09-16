@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accuracy Report</title>
+</head>
+<body>
+    <div class="background-blur">
+        <div class="accuracy-container">
+            <a  class="close-icon" href="/home" (click)="close.emit()">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.96405 0.981748L20 15.0171L33.9632 1.05447C34.2717 0.726193 34.6432 0.463583 35.0556 0.282388C35.468 0.101192 35.9127 0.0051427 36.3632 0C37.3275 0 38.2524 0.383088 38.9344 1.06499C39.6163 1.74689 39.9994 2.67175 39.9994 3.6361C40.0079 4.0819 39.9252 4.52472 39.7563 4.9374C39.5875 5.35007 39.3361 5.7239 39.0176 6.03593L24.8726 19.9986L39.0176 34.143C39.6169 34.7293 39.9684 35.5232 39.9994 36.361C39.9994 37.3254 39.6163 38.2502 38.9344 38.9321C38.2524 39.614 37.3275 39.9971 36.3632 39.9971C35.8997 40.0163 35.4374 39.939 35.0054 39.77C34.5735 39.601 34.1814 39.344 33.8541 39.0154L20 24.98L6.00041 38.979C5.69317 39.2963 5.32612 39.5497 4.92045 39.7244C4.51478 39.8992 4.07852 39.9919 3.63685 39.9971C2.67245 39.9971 1.74756 39.614 1.06563 38.9321C0.383696 38.2502 0.000591643 37.3254 0.000591643 36.361C-0.00788627 35.9152 0.0748273 35.4724 0.243657 35.0597C0.412487 34.6471 0.663871 34.2732 0.982381 33.9612L15.1274 19.9986L0.982381 5.85412C0.383071 5.26784 0.0316439 4.4739 0.000591643 3.6361C0.000591643 2.67175 0.383696 1.74689 1.06563 1.06499C1.74756 0.383088 2.67245 0 3.63685 0C4.50955 0.0109083 5.34589 0.36361 5.96405 0.981748Z" fill="#E67829"/>
+                </svg>
+            </a>
+
+            <p class="accuracy-title">{{"accuracy report" | titlecase}} </p>
+
+            <div class="text-container">
+                <p class="text-label">Text: </p>
+                <p class="text">{{ text }}</p>
+            </div>
+            <div class="text-container">
+                <p class="text-label">Predicted Label: </p>
+                <p class="text">{{ resultLabel }}</p>
+            </div>
+            <p class="model-text">Model with the best accuracy: </p>
+            <div *ngIf="isLoading" class="loading-indicator">
+                Loading
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+            </div>
+              
+            <div class="donut-chart" [ngClass]="{'reviews-margin': activeTab === 'restaurant-reviews'}">
+                <canvas #chartCanvas></canvas>
+            </div>              
+        </div>
+    </div>   
+</body>
+</html>
