@@ -8,7 +8,8 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   userLoggedIn: boolean = false;
-
+  title = 'samurAI';
+  
   private _username: string = '';
   private _email: string = '';
 
