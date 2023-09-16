@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "samur-ai": {
+    "samurai": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/samur-ai",
+            "outputPath": "dist/samurai",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
