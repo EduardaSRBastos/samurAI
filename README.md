@@ -1,5 +1,9 @@
 # SamurAI
 
+Mock project for SamurAI, an automated social media data extraction and training project for sentiment analysis systems.
+
+Mockups (Figma): [SamurAI Mockups](https://www.figma.com/file/RoRQ8znAXhK8S45LYkQO5V/SamurAI).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
 ## Development server
